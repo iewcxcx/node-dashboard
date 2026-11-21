@@ -25,17 +25,23 @@
   input{flex:1;min-width:160px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr);gap:6px}.stat{padding:8px 6px}.stat b{font-size:18px}.stat span{font-size:11px}.upd-note{display:block}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme-btn{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}.filters select{font-size:13px;padding:10px 6px}}
+  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr);gap:6px}.stat{padding:8px 6px}.stat b{font-size:18px}.stat span{font-size:11px}.upd-note{display:block}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme-btn{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}.filters select{font-size:13px;padding:10px 6px}.meta{flex-wrap:nowrap}.meta span{white-space:nowrap}}
   .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
   .card.off{opacity:.65}
-  .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+  .top>div:first-child{flex:1;min-width:0}
   .name{font-weight:700;font-size:15px}
   .meta{color:#94a3b8;font-size:12px;margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-  .bar-inline{flex:1;min-width:48px;height:6px;border-radius:999px;background:#1e293b;overflow:hidden}
+  .st-on{color:#22c55e;font-weight:600}
+  .st-mid{color:#eab308;font-weight:600}
+  .st-bad{color:#ef4444;font-weight:600}
+  .st-off{color:#94a3b8;font-weight:600}
+  .loss{display:inline-block;min-width:62px}
+  .bar-inline{flex:1;min-width:80px;height:6px;border-radius:999px;background:#1e293b;overflow:hidden}
   .bar-inline i{display:block;height:100%;border-radius:999px}
   .pill{font-size:11px;padding:3px 8px;border-radius:999px;background:#1e293b;color:#cbd5e1;white-space:nowrap}
-  .lat{font-size:22px;font-weight:800;white-space:nowrap;text-align:right}
-  .lat small{font-size:12px;font-weight:400;color:#94a3b8;display:block}
+  .lat{font-size:22px;font-weight:800;white-space:nowrap;text-align:right;line-height:1}
+  .lat small{font-size:13px;font-weight:400;color:#94a3b8}
   .good{color:#4ade80}.mid{color:#facc15}.bad{color:#f87171}.off{color:#94a3b8}
   .bar{height:8px;border-radius:999px;background:#1e293b;margin-top:12px;overflow:hidden}
   .bar i{display:block;height:100%;border-radius:999px}
@@ -196,11 +202,11 @@ async function load(){
 function setSrc(s){curSrc=s;render();}
 function cls(ms,online){
   if(!online) return 'off';
-  if(ms<150) return 'good'; if(ms<350) return 'mid'; return 'bad';
+  if(ms<200) return 'good'; if(ms<400) return 'mid'; return 'bad';
 }
 function barColor(ms,online){
   if(!online) return '#475569';
-  if(ms<150) return '#22c55e'; if(ms<350) return '#eab308'; return '#ef4444';
+  if(ms<200) return '#22c55e'; if(ms<400) return '#eab308'; return '#ef4444';
 }
 function segs(filled,color){
   let s='';
@@ -209,7 +215,7 @@ function segs(filled,color){
 }
 function detailHtml(n){
   const c=cls(n.latency_ms,n.online);
-  const latColor=n.online?(n.latency_ms<150?'#16a34a':n.latency_ms<350?'#ca8a04':'#dc2626'):'#dc2626';
+  const latColor=n.online?(n.latency_ms<200?'#16a34a':n.latency_ms<400?'#ca8a04':'#dc2626'):'#94a3b8';
   const latFill=n.online?Math.min(20,Math.max(1,Math.round((n.latency_ms||0)/500*20))):20;
   const lossFill=Math.round((n.loss||0)/100*20);
   const lossColor=n.loss===0?'#16a34a':n.loss<50?'#ca8a04':'#dc2626';
@@ -240,9 +246,9 @@ function render(){
     const c=cls(n.latency_ms,n.online);
     const pct=n.online?Math.min(100,Math.max(4,(n.latency_ms||0)/500*100)):0;
     return `<div class="card${n.online?'':' off'}" onclick="this.querySelector('.detail').classList.toggle('open')">
-      <div class="top"><div><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
-      <div class="meta"><span class="pill">${esc(n.source)}</span> ${esc(n.proto.toUpperCase())} · 丢包 ${esc(n.loss)}% <span class="bar-inline"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></span> ${n.online?'在线':'离线'}</div></div>
-      <div class="lat ${c}">${n.online?n.latency_ms+'<small>ms</small>':'离线'}</div></div>
+      <div class="top"><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
+      <div class="lat ${c}">${n.online?n.latency_ms+' <small>ms</small>':'离线'}</div></div>
+      <div class="meta"><span class="pill">${esc(n.source)}</span> <span class="proto">${esc(n.proto.toUpperCase())}</span> · <span class="loss">丢包 ${esc(n.loss)}%</span> · <span class="${!n.online?'st-off':n.latency_ms<200?'st-on':n.latency_ms<400?'st-mid':'st-bad'}">${n.online?'在线':'离线'}</span> <span class="bar-inline"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></span></div>
       ${detailHtml(n)}
     </div>`;
   }).join(''):'<div class="empty">没有匹配的节点，先等第一次探测跑完。</div>';
