@@ -5,42 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>节点延迟看板</title>
 <style>
-  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f172a;color:#e2e8f0}
-  header{padding:20px 16px 8px;max-width:900px;margin:0 auto}
-  h1{font-size:22px;margin:0 0 6px} p{color:#94a3b8;margin:4px 0}
-  .stats{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-  .stat{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:10px 14px}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#0b1220;color:#e2e8f0}
+  .wrap{max-width:960px;margin:0 auto;padding:16px 14px 48px}
+  header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;padding:6px 2px 14px}
+  h1{font-size:22px;margin:0}
+  .sub{color:#94a3b8;font-size:13px;margin-top:4px}
+  .stats{display:flex;gap:8px}
+  .stat{background:#111c33;border:1px solid #1e293b;border-radius:10px;padding:8px 12px;text-align:center;min-width:74px}
   .stat b{font-size:20px;display:block}
-  .controls{max-width:900px;margin:0 auto;padding:0 16px 12px;display:flex;gap:8px;flex-wrap:wrap}
-  input,select{flex:1;min-width:140px;background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:10px}
-  main{max-width:900px;margin:0 auto;padding:0 16px 40px;display:grid;gap:10px}
-  .card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:14px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-  .name{font-weight:600} .meta{color:#94a3b8;font-size:13px;margin-top:4px}
-  .lat{font-size:20px;font-weight:700;white-space:nowrap}
+  .stat span{font-size:12px;color:#94a3b8}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+  .tab{border:1px solid #334155;background:#111c33;color:#e2e8f0;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer}
+  .tab.on{background:#2563eb;border-color:#2563eb;color:#fff}
+  .controls{display:flex;gap:8px;margin-bottom:10px}
+  input,select{flex:1;min-width:120px;background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:10px;font-size:14px}
+  table{width:100%;border-collapse:collapse;background:#111c33;border:1px solid #1e293b;border-radius:12px;overflow:hidden}
+  th{font-size:12px;color:#94a3b8;text-align:left;padding:10px 12px;border-bottom:1px solid #1e293b;white-space:nowrap}
+  td{padding:10px 12px;border-bottom:1px solid #16213a;font-size:14px;vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  .name{font-weight:600;white-space:nowrap}
+  .meta{color:#94a3b8;font-size:12px;margin-top:2px;white-space:nowrap}
+  .pill{font-size:11px;padding:2px 7px;border-radius:999px;background:#1e293b;color:#cbd5e1;white-space:nowrap}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
   .good{color:#4ade80}.mid{color:#facc15}.bad{color:#f87171}.off{color:#94a3b8}
-  .pill{font-size:12px;padding:2px 8px;border-radius:999px;background:#334155}
+  .bar{height:6px;border-radius:999px;background:#1e293b;min-width:70px;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:999px}
+  .lat{font-weight:700;white-space:nowrap;text-align:right}
+  .empty{color:#94a3b8;padding:24px;text-align:center}
+  @media (max-width:640px){
+    .hide-m{display:none}
+    td,th{padding:9px 8px}
+    .bar{min-width:44px}
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>节点延迟看板</h1>
-  <p id="updated">正在加载…</p>
-  <div class="stats">
-    <div class="stat"><b id="total">-</b>全部节点</div>
-    <div class="stat"><b id="online">-</b>在线</div>
-    <div class="stat"><b id="offline">-</b>离线</div>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>节点延迟看板</h1>
+      <div class="sub" id="updated">正在加载…</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="total">-</b><span>全部</span></div>
+      <div class="stat"><b id="online" style="color:#4ade80">-</b><span>在线</span></div>
+      <div class="stat"><b id="offline" style="color:#94a3b8">-</b><span>离线</span></div>
+    </div>
+  </header>
+
+  <div class="tabs" id="srcTabs"></div>
+
+  <div class="controls">
+    <input id="q" placeholder="搜索节点名 / 地区…" oninput="render()">
+    <select id="only" onchange="render()">
+      <option value="">全部状态</option>
+      <option value="online">只看在线</option>
+      <option value="offline">只看离线</option>
+    </select>
   </div>
-</header>
-<div class="controls">
-  <input id="q" placeholder="搜索节点名 / 地区…" oninput="render()">
-  <select id="src" onchange="render()"><option value="">全部机场</option></select>
-  <select id="only" onchange="render()">
-    <option value="">全部状态</option><option value="online">只看在线</option><option value="offline">只看离线</option>
-  </select>
+
+  <table>
+    <thead><tr>
+      <th>节点</th><th class="hide-m">协议 / 地址</th><th>延迟</th><th style="text-align:right">状态</th>
+    </tr></thead>
+    <tbody id="list"></tbody>
+  </table>
+  <p class="sub" style="margin-top:10px">每小时自动测一次 · 延迟为 GitHub 机房到节点的 TCP 延迟，仅供参考</p>
 </div>
-<main id="list"></main>
 <script>
 let data={nodes:[]};
+let curSrc='';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function load(){
   const r=await fetch('results.json?'+Date.now());
@@ -49,28 +84,38 @@ async function load(){
   document.getElementById('total').textContent=data.total;
   document.getElementById('online').textContent=data.online;
   document.getElementById('offline').textContent=data.offline;
-  const srcs=[...new Set(data.nodes.map(n=>n.source))];
-  document.getElementById('src').innerHTML='<option value="">全部机场</option>'+srcs.map(s=>`<option>${s}</option>`).join('');
+  const srcs=[...new Set(data.nodes.map(n=>n.source).filter(Boolean))];
+  document.getElementById('srcTabs').innerHTML='<button class="tab'+(curSrc===''?' on':'')+'" onclick="setSrc(\'\')">全部机场</button>'+srcs.map(s=>`<button class="tab${curSrc===s?' on':''}" onclick="setSrc('${esc(s)}')">${esc(s)}</button>`).join('');
   render();
 }
+function setSrc(s){curSrc=s;load();}
 function cls(ms,online){
   if(!online) return 'off';
   if(ms<150) return 'good'; if(ms<350) return 'mid'; return 'bad';
 }
+function barColor(ms,online){
+  if(!online) return '#475569';
+  if(ms<150) return '#22c55e'; if(ms<350) return '#eab308'; return '#ef4444';
+}
 function render(){
   const q=document.getElementById('q').value.toLowerCase();
-  const src=document.getElementById('src').value;
   const only=document.getElementById('only').value;
   const list=data.nodes.filter(n=>
     (!q||n.name.toLowerCase().includes(q)) &&
-    (!src||n.source===src) &&
+    (!curSrc||n.source===curSrc) &&
     (!only||(only==='online'?n.online:!n.online))
   );
-  document.getElementById('list').innerHTML=list.length?list.map(n=>`
-    <div class="card"><div><div class="name">${esc(n.name)}</div>
-    <div class="meta"><span class="pill">${esc(n.source)}</span> ${esc(n.proto.toUpperCase())} · ${esc(n.host)}:${esc(n.port)} · 丢包 ${esc(n.loss)}%</div></div>
-    <div class="lat ${cls(n.latency_ms,n.online)}">${n.online?n.latency_ms+' ms':'离线'}</div></div>`).join('')
-    :'<p style="color:#94a3b8">没有匹配的节点，先等第一次探测跑完。</p>';
+  document.getElementById('list').innerHTML=list.length?list.map(n=>{
+    const c=cls(n.latency_ms,n.online);
+    const pct=n.online?Math.min(100,Math.max(4,(n.latency_ms||0)/500*100)):0;
+    return `<tr>
+      <td><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
+      <div class="meta"><span class="pill">${esc(n.source)}</span> 丢包 ${esc(n.loss)}%</div></td>
+      <td class="hide-m"><span class="pill">${esc(n.proto.toUpperCase())}</span><div class="meta">${esc(n.host)}:${esc(n.port)}</div></td>
+      <td><div class="bar"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></div></td>
+      <td class="lat ${c}">${n.online?n.latency_ms+' ms':'离线'}</td>
+    </tr>`;
+  }).join(''):'<tr><td colspan="4" class="empty">没有匹配的节点，先等第一次探测跑完。</td></tr>';
 }
 load();
 </script>
