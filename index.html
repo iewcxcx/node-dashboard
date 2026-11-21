@@ -115,10 +115,10 @@
       <div class="theme">
         <label>主题背景</label>
         <div class="theme-drop">
-          <button class="theme-btn" id="themeBtn" onclick="toggleThemeMenu(event)"><span id="themeLabel">⬛ 纯黑</span><span>▾</span></button>
+          <button class="theme-btn" id="themeBtn" onclick="toggleThemeMenu(event)"><span id="themeLabel">⬛ 黑色主题</span><span>▾</span></button>
           <div class="theme-list" id="themeList">
-            <button class="theme-opt" data-theme="black" onclick="pickTheme('black')">⬛ 纯黑</button>
-            <button class="theme-opt" data-theme="light" onclick="pickTheme('light')">☀️ 白色</button>
+            <button class="theme-opt" data-theme="black" onclick="pickTheme('black')">⬛ 黑色主题</button>
+            <button class="theme-opt" data-theme="light" onclick="pickTheme('light')">☀️ 白色主题</button>
           </div>
         </div>
       </div>
@@ -174,7 +174,7 @@ function setTheme(t){
   if(t==='black') document.body.classList.add('black');
   try{localStorage.setItem('theme',t);}catch(e){}
   const label=document.getElementById('themeLabel');
-  if(label) label.textContent=t==='light'?'☀️ 白色':'⬛ 纯黑';
+  if(label) label.textContent=t==='light'?'☀️ 白色主题':'⬛ 黑色主题';
   document.querySelectorAll('.theme-opt').forEach(b=>b.classList.toggle('on',b.dataset.theme===t));
 }
 function toggleThemeMenu(e){e.stopPropagation();document.getElementById('themeList').classList.toggle('open');}
@@ -241,7 +241,8 @@ function render(){
     (!curSrc||n.source===curSrc) &&
     (!only||(only==='online'?n.online:!n.online))
   );
-  if(sort==='name') list=[...list].sort((a,b)=>a.name.localeCompare(b.name,'zh'));
+  if(sort==='name') list=[...list].sort((a,b)=>nameKey(a.name).localeCompare(nameKey(b.name),'zh',{numeric:true}));
+function nameKey(n){return n.replace(/^[\u{1F1E6}-\u{1F1FF}]+/u,'').trim();}
   document.getElementById('list').innerHTML=list.length?list.map(n=>{
     const c=cls(n.latency_ms,n.online);
     const pct=n.online?Math.min(100,Math.max(4,(n.latency_ms||0)/500*100)):0;
