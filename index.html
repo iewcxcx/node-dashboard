@@ -25,12 +25,13 @@
   input{flex:1;min-width:160px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:701px){.name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
   @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr);gap:6px}.stat{padding:8px 6px}.stat b{font-size:18px}.stat span{font-size:11px}.upd-note{display:block}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme-btn{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}.filters select{font-size:13px;padding:10px 6px}.meta{flex-wrap:nowrap}.meta span{white-space:nowrap}}
   .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
   .card.off{opacity:.65}
   .top{display:flex;justify-content:space-between;gap:10px;align-items:center}
   .top>div:first-child{flex:1;min-width:0}
-  .name{font-weight:700;font-size:15px}
+  .name{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .meta{color:#94a3b8;font-size:12px;margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
   .st-on{color:#22c55e;font-weight:600}
   .st-mid{color:#eab308;font-weight:600}
@@ -91,16 +92,7 @@
   body.black .theme button{background:#111111;border-color:#333333}
   body.black .bar{background:#222222}
   body.black .pill{background:#222222}
-  .card{cursor:pointer}
-  .detail{display:none;margin-top:12px;grid-template-columns:1fr 1fr;gap:10px}
-  .detail.open{display:grid}
-  .dbox{background:#f1f5f9;color:#0f172a;border-radius:12px;padding:12px}
-  .dbox h3{margin:0 0 8px;font-size:14px;color:#334155}
-  .drow{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:3px 0}
-  .drow .k{color:#334155}
-  .drow .v{font-weight:700}
-  .segs{display:flex;gap:2px;margin:2px 0 6px}
-  .segs i{flex:1;height:6px;border-radius:2px;background:#e2e8f0}
+  .card{cursor:default}
   .hint{font-size:12px;color:#94a3b8;margin-top:10px}
 </style>
 </head>
@@ -157,7 +149,7 @@
   </div>
 
   <div class="grid" id="list"></div>
-  <p class="sub" style="margin-top:14px">每小时自动测一次 · 只确认节点是否在线 · 仅供参考</p>
+  <p class="sub" style="margin-top:14px;text-align:center">每小时自动测一次 · 只确认节点是否在线 · 仅供参考</p>
 </div>
 <script>
 let data={nodes:[]};
@@ -208,30 +200,6 @@ function barColor(ms,online){
   if(!online) return '#475569';
   if(ms<200) return '#22c55e'; if(ms<400) return '#eab308'; return '#ef4444';
 }
-function segs(filled,color){
-  let s='';
-  for(let i=0;i<20;i++) s+=`<i style="${i<filled?`background:${color}`:''}"></i>`;
-  return `<div class="segs">${s}</div>`;
-}
-function detailHtml(n){
-  const c=cls(n.latency_ms,n.online);
-  const latColor=n.online?(n.latency_ms<200?'#16a34a':n.latency_ms<400?'#ca8a04':'#dc2626'):'#94a3b8';
-  const latFill=n.online?Math.min(20,Math.max(1,Math.round((n.latency_ms||0)/500*20))):20;
-  const lossFill=Math.round((n.loss||0)/100*20);
-  const lossColor=n.loss===0?'#16a34a':n.loss<50?'#ca8a04':'#dc2626';
-  return `<div class="detail">
-    <div class="dbox"><h3>延迟</h3>
-      <div class="drow"><span class="k">🔴 TCP</span><span class="v" style="color:${latColor}">${n.online?n.latency_ms+' ms':'超时'}</span></div>${segs(latFill,latColor)}
-      <div class="drow"><span class="k">🟢 ICMP</span><span class="v" style="color:#64748b">未测</span></div>${segs(0,'#94a3b8')}
-      <div class="drow"><span class="k">🔵 HTTP</span><span class="v" style="color:#64748b">不适用</span></div>${segs(0,'#94a3b8')}
-    </div>
-    <div class="dbox"><h3>丢包</h3>
-      <div class="drow"><span class="k">🔴 TCP</span><span class="v" style="color:${lossColor}">${esc(n.loss)}%</span></div>${segs(lossFill,lossColor)}
-      <div class="drow"><span class="k">🟢 ICMP</span><span class="v" style="color:#64748b">未测</span></div>${segs(0,'#94a3b8')}
-      <div class="drow"><span class="k">🔵 HTTP</span><span class="v" style="color:#64748b">不适用</span></div>${segs(0,'#94a3b8')}
-    </div>
-  </div>`;
-}
 function render(){
   const q=document.getElementById('q').value.toLowerCase();
   const only=curOnly;
@@ -246,11 +214,10 @@ function nameKey(n){return n.replace(/^[\u{1F1E6}-\u{1F1FF}]+/u,'').trim();}
   document.getElementById('list').innerHTML=list.length?list.map(n=>{
     const c=cls(n.latency_ms,n.online);
     const pct=n.online?Math.min(100,Math.max(4,(n.latency_ms||0)/500*100)):0;
-    return `<div class="card${n.online?'':' off'}" onclick="this.querySelector('.detail').classList.toggle('open')">
+    return `<div class="card${n.online?'':' off'}">
       <div class="top"><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
       <div class="lat ${c}">${n.online?n.latency_ms+' <small>ms</small>':'离线'}</div></div>
       <div class="meta"><span class="pill">${esc(n.source)}</span> <span class="proto">${esc(n.proto.toUpperCase())}</span> · <span class="loss">丢包 ${esc(n.loss)}%</span> · <span class="${!n.online?'st-off':n.latency_ms<200?'st-on':n.latency_ms<400?'st-mid':'st-bad'}">${n.online?'在线':'离线'}</span> <span class="bar-inline"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></span></div>
-      ${detailHtml(n)}
     </div>`;
   }).join(''):'<div class="empty">没有匹配的节点，先等第一次探测跑完。</div>';
 }
