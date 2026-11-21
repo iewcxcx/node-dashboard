@@ -1,0 +1,50 @@
+name: Probe Nodes
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # 每小时整点测一次
+  workflow_dispatch:      # 也可以在 Actions 页面手动点 Run
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: pip install pyyaml
+      - name: Run probe
+        env:
+          SUB1: ${{ secrets.SUB1 }}
+          SUB2: ${{ secrets.SUB2 }}
+          SUB3: ${{ secrets.SUB3 }}
+          SUB4: ${{ secrets.SUB4 }}
+          SUB5: ${{ secrets.SUB5 }}
+          SUB6: ${{ secrets.SUB6 }}
+          SUB7: ${{ secrets.SUB7 }}
+          SUB8: ${{ secrets.SUB8 }}
+          SUB9: ${{ secrets.SUB9 }}
+          SUB10: ${{ secrets.SUB10 }}
+          AIRPORT1_NAME: ${{ vars.AIRPORT1_NAME }}
+          AIRPORT2_NAME: ${{ vars.AIRPORT2_NAME }}
+          AIRPORT3_NAME: ${{ vars.AIRPORT3_NAME }}
+          AIRPORT4_NAME: ${{ vars.AIRPORT4_NAME }}
+          AIRPORT5_NAME: ${{ vars.AIRPORT5_NAME }}
+          AIRPORT6_NAME: ${{ vars.AIRPORT6_NAME }}
+          AIRPORT7_NAME: ${{ vars.AIRPORT7_NAME }}
+          AIRPORT8_NAME: ${{ vars.AIRPORT8_NAME }}
+          AIRPORT9_NAME: ${{ vars.AIRPORT9_NAME }}
+          AIRPORT10_NAME: ${{ vars.AIRPORT10_NAME }}
+        run: python probe.py
+      - name: Commit results
+        run: |
+          git config user.name "node-bot"
+          git config user.email "node-bot@users.noreply.github.com"
+          git add results.json
+          git diff --cached --quiet || git commit -m "update probe results"
+          git push
