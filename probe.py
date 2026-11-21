@@ -6,6 +6,7 @@ import socket
 import time
 import urllib.request
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 from urllib.parse import unquote, urlparse
 
 try:
@@ -188,7 +189,7 @@ def main():
     results.sort(key=lambda x: (x["latency_ms"] is None, x["latency_ms"] or 99999))
     online = sum(1 for r in results if r["online"])
     out = {
-        "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "updated_at": datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M 北京时间"),
         "total": len(results),
         "online": online,
         "offline": len(results) - online,
