@@ -6,72 +6,68 @@
 <title>节点延迟看板</title>
 <style>
   *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#0b1220;color:#e2e8f0}
-  .wrap{max-width:960px;margin:0 auto;padding:16px 14px 48px}
-  header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;padding:6px 2px 14px}
-  h1{font-size:22px;margin:0}
-  .sub{color:#94a3b8;font-size:13px;margin-top:4px}
-  .stats{display:flex;gap:8px}
-  .stat{background:#111c33;border:1px solid #1e293b;border-radius:10px;padding:8px 12px;text-align:center;min-width:74px}
-  .stat b{font-size:20px;display:block}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#0a0f1e;color:#e2e8f0}
+  .wrap{max-width:1080px;margin:0 auto;padding:18px 14px 48px}
+  header{padding:8px 2px 16px}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:#94a3b8;font-size:13px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+  .stat{background:linear-gradient(180deg,#141d33,#0f172a);border:1px solid #1e293b;border-radius:14px;padding:14px}
+  .stat b{font-size:24px;display:block}
   .stat span{font-size:12px;color:#94a3b8}
-  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
-  .tab{border:1px solid #334155;background:#111c33;color:#e2e8f0;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer}
-  .tab.on{background:#2563eb;border-color:#2563eb;color:#fff}
-  .controls{display:flex;gap:8px;margin-bottom:10px}
-  input,select{flex:1;min-width:120px;background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:10px;font-size:14px}
-  table{width:100%;border-collapse:collapse;background:#111c33;border:1px solid #1e293b;border-radius:12px;overflow:hidden}
-  th{font-size:12px;color:#94a3b8;text-align:left;padding:10px 12px;border-bottom:1px solid #1e293b;white-space:nowrap}
-  td{padding:10px 12px;border-bottom:1px solid #16213a;font-size:14px;vertical-align:middle}
-  tr:last-child td{border-bottom:none}
-  .name{font-weight:600;white-space:nowrap}
-  .meta{color:#94a3b8;font-size:12px;margin-top:2px;white-space:nowrap}
-  .pill{font-size:11px;padding:2px 7px;border-radius:999px;background:#1e293b;color:#cbd5e1;white-space:nowrap}
-  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+  .stat small{font-size:12px;color:#94a3b8}
+  .bar-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:4px 0 14px}
+  .chip{border:1px solid #334155;background:#111c33;color:#e2e8f0;border-radius:999px;padding:8px 14px;font-size:14px;cursor:pointer}
+  .chip.on{background:#2563eb;border-color:#2563eb;color:#fff}
+  input,select{background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:10px;font-size:14px}
+  input{flex:1;min-width:160px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+  .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
+  .card.off{opacity:.65}
+  .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .name{font-weight:700;font-size:15px}
+  .meta{color:#94a3b8;font-size:12px;margin-top:4px}
+  .pill{font-size:11px;padding:3px 8px;border-radius:999px;background:#1e293b;color:#cbd5e1;white-space:nowrap}
+  .lat{font-size:22px;font-weight:800;white-space:nowrap;text-align:right}
+  .lat small{font-size:12px;font-weight:400;color:#94a3b8;display:block}
   .good{color:#4ade80}.mid{color:#facc15}.bad{color:#f87171}.off{color:#94a3b8}
-  .bar{height:6px;border-radius:999px;background:#1e293b;min-width:70px;overflow:hidden}
+  .bar{height:8px;border-radius:999px;background:#1e293b;margin-top:12px;overflow:hidden}
   .bar i{display:block;height:100%;border-radius:999px}
-  .lat{font-weight:700;white-space:nowrap;text-align:right}
-  .empty{color:#94a3b8;padding:24px;text-align:center}
-  @media (max-width:640px){
-    .hide-m{display:none}
-    td,th{padding:9px 8px}
-    .bar{min-width:44px}
-  }
+  .foot{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:#94a3b8}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+  .empty{color:#94a3b8;padding:28px;text-align:center;grid-column:1/-1}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div>
-      <h1>节点延迟看板</h1>
-      <div class="sub" id="updated">正在加载…</div>
-    </div>
+    <h1>节点延迟看板</h1>
+    <div class="sub" id="updated">正在加载…</div>
     <div class="stats">
-      <div class="stat"><b id="total">-</b><span>全部</span></div>
-      <div class="stat"><b id="online" style="color:#4ade80">-</b><span>在线</span></div>
-      <div class="stat"><b id="offline" style="color:#94a3b8">-</b><span>离线</span></div>
+      <div class="stat"><b id="total">-</b><span>全部节点</span></div>
+      <div class="stat"><b id="online" style="color:#4ade80">-</b><span>在线节点</span></div>
+      <div class="stat"><b id="offline" style="color:#94a3b8">-</b><span>离线节点</span></div>
+      <div class="stat"><b id="avail">-</b><span>可用率</span></div>
     </div>
   </header>
 
-  <div class="tabs" id="srcTabs"></div>
-
-  <div class="controls">
+  <div class="bar-top" id="srcTabs"></div>
+  <div class="bar-top">
     <input id="q" placeholder="搜索节点名 / 地区…" oninput="render()">
     <select id="only" onchange="render()">
       <option value="">全部状态</option>
-      <option value="online">只看在线</option>
-      <option value="offline">只看离线</option>
+      <option value="online">仅在线</option>
+      <option value="offline">仅离线</option>
+    </select>
+    <select id="sort" onchange="render()">
+      <option value="lat">按延迟从低到高</option>
+      <option value="name">按名称排序</option>
     </select>
   </div>
 
-  <table>
-    <thead><tr>
-      <th>节点</th><th class="hide-m">协议 / 地址</th><th>延迟</th><th style="text-align:right">状态</th>
-    </tr></thead>
-    <tbody id="list"></tbody>
-  </table>
-  <p class="sub" style="margin-top:10px">每小时自动测一次 · 延迟为 GitHub 机房到节点的 TCP 延迟，仅供参考</p>
+  <div class="grid" id="list"></div>
+  <p class="sub" style="margin-top:14px">每小时自动测一次 · 延迟为 GitHub 机房到节点的 TCP 延迟，仅供参考 · 离线多为 Hysteria2（UDP），不一定是真死</p>
 </div>
 <script>
 let data={nodes:[]};
@@ -84,8 +80,9 @@ async function load(){
   document.getElementById('total').textContent=data.total;
   document.getElementById('online').textContent=data.online;
   document.getElementById('offline').textContent=data.offline;
+  document.getElementById('avail').textContent=data.total?Math.round(data.online/data.total*100)+'%':'-';
   const srcs=[...new Set(data.nodes.map(n=>n.source).filter(Boolean))];
-  document.getElementById('srcTabs').innerHTML='<button class="tab'+(curSrc===''?' on':'')+'" onclick="setSrc(\'\')">全部机场</button>'+srcs.map(s=>`<button class="tab${curSrc===s?' on':''}" onclick="setSrc('${esc(s)}')">${esc(s)}</button>`).join('');
+  document.getElementById('srcTabs').innerHTML='<button class="chip'+(curSrc===''?' on':'')+'" onclick="setSrc(\'\')">全部机场</button>'+srcs.map(s=>`<button class="chip${curSrc===s?' on':''}" onclick="setSrc('${esc(s)}')">${esc(s)}</button>`).join('');
   render();
 }
 function setSrc(s){curSrc=s;load();}
@@ -100,22 +97,24 @@ function barColor(ms,online){
 function render(){
   const q=document.getElementById('q').value.toLowerCase();
   const only=document.getElementById('only').value;
-  const list=data.nodes.filter(n=>
+  const sort=document.getElementById('sort').value;
+  let list=data.nodes.filter(n=>
     (!q||n.name.toLowerCase().includes(q)) &&
     (!curSrc||n.source===curSrc) &&
     (!only||(only==='online'?n.online:!n.online))
   );
+  if(sort==='name') list=[...list].sort((a,b)=>a.name.localeCompare(b.name,'zh'));
   document.getElementById('list').innerHTML=list.length?list.map(n=>{
     const c=cls(n.latency_ms,n.online);
     const pct=n.online?Math.min(100,Math.max(4,(n.latency_ms||0)/500*100)):0;
-    return `<tr>
-      <td><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
-      <div class="meta"><span class="pill">${esc(n.source)}</span> 丢包 ${esc(n.loss)}%</div></td>
-      <td class="hide-m"><span class="pill">${esc(n.proto.toUpperCase())}</span><div class="meta">${esc(n.host)}:${esc(n.port)}</div></td>
-      <td><div class="bar"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></div></td>
-      <td class="lat ${c}">${n.online?n.latency_ms+' ms':'离线'}</td>
-    </tr>`;
-  }).join(''):'<tr><td colspan="4" class="empty">没有匹配的节点，先等第一次探测跑完。</td></tr>';
+    return `<div class="card${n.online?'':' off'}">
+      <div class="top"><div><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
+      <div class="meta"><span class="pill">${esc(n.source)}</span> ${esc(n.proto.toUpperCase())} · ${esc(n.host)}:${esc(n.port)}</div></div>
+      <div class="lat ${c}">${n.online?n.latency_ms+'<small>ms</small>':'离线'}</div></div>
+      <div class="bar"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></div>
+      <div class="foot"><span>丢包 ${esc(n.loss)}%</span><span>${n.online?'在线':'离线'}</span></div>
+    </div>`;
+  }).join(''):'<div class="empty">没有匹配的节点，先等第一次探测跑完。</div>';
 }
 load();
 </script>
