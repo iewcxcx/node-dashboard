@@ -178,7 +178,11 @@ def main():
     results = []
     for n in all_nodes:
         ms, ok = tcp_latency(n["host"], n["port"])
-        results.append({**n, "latency_ms": ms, "online": ok > 0,
+        # Do NOT write host/port into results.json: the panel is public,
+        # and the user wants server addresses hidden. Protocol is fine.
+        results.append({"name": n["name"], "proto": n["proto"],
+                        "source": n["source"],
+                        "latency_ms": ms, "online": ok > 0,
                         "loss": 0 if ok == 2 else (50 if ok == 1 else 100)})
 
     results.sort(key=lambda x: (x["latency_ms"] is None, x["latency_ms"] or 99999))

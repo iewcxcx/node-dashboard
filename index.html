@@ -7,7 +7,7 @@
 <style>
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#0a0f1e;color:#e2e8f0}
-  .wrap{max-width:1080px;margin:0 auto;padding:18px 14px 48px}
+  .wrap{max-width:820px;margin:0 auto;padding:18px 14px 48px}
   header{padding:8px 2px 16px}
   .head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
   h1{font-size:24px;margin:0 0 4px}
@@ -18,12 +18,14 @@
   .stat span{font-size:12px;color:#94a3b8}
   .stat small{font-size:12px;color:#94a3b8}
   .bar-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:4px 0 14px}
+  .filters select{flex:1;min-width:0}
   .chip{border:1px solid #334155;background:#111c33;color:#e2e8f0;border-radius:999px;padding:8px 14px;font-size:14px;cursor:pointer}
   .chip.on{background:#2563eb;border-color:#2563eb;color:#fff}
   input,select{background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:10px;font-size:14px}
   input{flex:1;min-width:160px}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme select{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr);gap:6px}.stat{padding:8px 6px}.stat b{font-size:18px}.stat span{font-size:11px}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme-btn{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}.filters select{font-size:13px;padding:10px 6px}}
   .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
   .card.off{opacity:.65}
   .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
@@ -41,6 +43,28 @@
   .theme{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
   .theme label{font-size:13px;color:#94a3b8}
   .theme select{padding:7px 10px;font-size:13px;min-width:120px;flex:0}
+  .theme-drop{position:relative}
+  .theme-btn{display:flex;align-items:center;gap:6px;background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer;min-width:110px;justify-content:space-between}
+  .theme-list{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#111c33;border:1px solid #334155;border-radius:12px;padding:4px;min-width:130px;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .theme-list.open{display:block}
+  .theme-opt{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:transparent;color:#e2e8f0;border:none;border-radius:8px;padding:9px 10px;font-size:13px;cursor:pointer}
+  .theme-opt:hover{background:#1e293b}
+  .theme-opt.on{background:#2563eb;color:#fff}
+  body.light .theme-btn,body.light .theme-list{background:#ffffff;color:#0f172a;border-color:#e2e8f0}
+  body.light .theme-opt{color:#0f172a}
+  body.light .theme-opt:hover{background:#f1f5f9}
+  body.black .theme-btn,body.black .theme-list{background:#111111;border-color:#333333}
+  .drop{position:relative;flex:1;min-width:0}
+  .drop-btn{display:flex;align-items:center;gap:6px;width:100%;background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:10px 12px;font-size:14px;cursor:pointer;justify-content:space-between;white-space:nowrap;overflow:hidden}
+  .drop-list{display:none;position:absolute;left:0;top:calc(100% + 6px);background:#111c33;border:1px solid #334155;border-radius:12px;padding:4px;min-width:100%;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .drop-list.open{display:block}
+  .drop-opt{display:block;width:100%;text-align:left;background:transparent;color:#e2e8f0;border:none;border-radius:8px;padding:9px 10px;font-size:13px;cursor:pointer;white-space:nowrap}
+  .drop-opt:hover{background:#1e293b}
+  .drop-opt.on{background:#2563eb;color:#fff}
+  body.light .drop-btn,body.light .drop-list{background:#ffffff;color:#0f172a;border-color:#e2e8f0}
+  body.light .drop-opt{color:#0f172a}
+  body.light .drop-opt:hover{background:#f1f5f9}
+  body.black .drop-btn,body.black .drop-list{background:#111111;border-color:#333333}
   body.light{background:#ffffff;color:#0f172a}
   body.light .sub,body.light .stat span{color:#64748b}
   body.light .stat{background:#f8fafc;border-color:#e2e8f0}
@@ -79,10 +103,13 @@
       </div>
       <div class="theme">
         <label>主题背景</label>
-        <select id="themeSel" onchange="setTheme(this.value)">
-          <option value="black">⬛ 纯黑</option>
-          <option value="light">☀️ 白色</option>
-        </select>
+        <div class="theme-drop">
+          <button class="theme-btn" id="themeBtn" onclick="toggleThemeMenu(event)"><span id="themeLabel">⬛ 纯黑</span><span>▾</span></button>
+          <div class="theme-list" id="themeList">
+            <button class="theme-opt" data-theme="black" onclick="pickTheme('black')">⬛ 纯黑</button>
+            <button class="theme-opt" data-theme="light" onclick="pickTheme('light')">☀️ 白色</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="stats">
@@ -93,22 +120,29 @@
     </div>
   </header>
 
-  <div class="bar-top">
-    <select id="srcSel" onchange="setSrc(this.value)" style="flex:0;min-width:140px">
-      <option value="">全部机场</option>
-    </select>
+  <div class="bar-top filters">
+    <div class="drop">
+      <button class="drop-btn" onclick="toggleDrop(event,'src')"><span id="srcLabel">全部机场</span><span>▾</span></button>
+      <div class="drop-list" id="list-src"></div>
+    </div>
+    <div class="drop">
+      <button class="drop-btn" onclick="toggleDrop(event,'only')"><span id="onlyLabel">全部状态</span><span>▾</span></button>
+      <div class="drop-list" id="list-only">
+        <button class="drop-opt" onclick="pickOnly('',this)">全部状态</button>
+        <button class="drop-opt" onclick="pickOnly('online',this)">仅在线</button>
+        <button class="drop-opt" onclick="pickOnly('offline',this)">仅离线</button>
+      </div>
+    </div>
+    <div class="drop">
+      <button class="drop-btn" onclick="toggleDrop(event,'sort')"><span id="sortLabel">按延迟从低到高</span><span>▾</span></button>
+      <div class="drop-list" id="list-sort">
+        <button class="drop-opt" onclick="pickSort('lat',this)">按延迟从低到高</button>
+        <button class="drop-opt" onclick="pickSort('name',this)">按名称排序</button>
+      </div>
+    </div>
   </div>
   <div class="bar-top controls">
     <input id="q" placeholder="搜索节点名 / 地区…" oninput="render()">
-    <select id="only" onchange="render()">
-      <option value="">全部状态</option>
-      <option value="online">仅在线</option>
-      <option value="offline">仅离线</option>
-    </select>
-    <select id="sort" onchange="render()">
-      <option value="lat">按延迟从低到高</option>
-      <option value="name">按名称排序</option>
-    </select>
   </div>
 
   <div class="grid" id="list"></div>
@@ -116,15 +150,25 @@
 </div>
 <script>
 let data={nodes:[]};
-let curSrc='';
+let curSrc='', curOnly='', curSort='lat';
+function closeDrops(){document.querySelectorAll('.drop-list').forEach(l=>l.classList.remove('open'));}
+function toggleDrop(e,name){e.stopPropagation();const l=document.getElementById('list-'+name);const was=l.classList.contains('open');closeDrops();if(!was) l.classList.add('open');}
+function markOn(listId,el){document.querySelectorAll('#'+listId+' .drop-opt').forEach(b=>b.classList.remove('on'));if(el) el.classList.add('on');}
+function pickSrc(s,el){curSrc=s;document.getElementById('srcLabel').textContent=s||'全部机场';markOn('list-src',el);closeDrops();render();}
+function pickOnly(v,el){curOnly=v;document.getElementById('onlyLabel').textContent=el.textContent;markOn('list-only',el);closeDrops();render();}
+function pickSort(v,el){curSort=v;document.getElementById('sortLabel').textContent=el.textContent;markOn('list-sort',el);closeDrops();render();}
 function setTheme(t){
   document.body.classList.remove('light','black');
   if(t==='light') document.body.classList.add('light');
   if(t==='black') document.body.classList.add('black');
   try{localStorage.setItem('theme',t);}catch(e){}
-  const sel=document.getElementById('themeSel');
-  if(sel) sel.value=t;
+  const label=document.getElementById('themeLabel');
+  if(label) label.textContent=t==='light'?'☀️ 白色':'⬛ 纯黑';
+  document.querySelectorAll('.theme-opt').forEach(b=>b.classList.toggle('on',b.dataset.theme===t));
 }
+function toggleThemeMenu(e){e.stopPropagation();document.getElementById('themeList').classList.toggle('open');}
+function pickTheme(t){setTheme(t);document.getElementById('themeList').classList.remove('open');}
+document.addEventListener('click',()=>{const l=document.getElementById('themeList');if(l) l.classList.remove('open');closeDrops();});
 (function(){try{const t=localStorage.getItem('theme');setTheme(t==='light'?'light':'black');}catch(e){setTheme('black');}})();
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function load(){
@@ -139,8 +183,9 @@ async function load(){
     const na=parseInt((a.match(/\d+/)||['0'])[0],10), nb=parseInt((b.match(/\d+/)||['0'])[0],10);
     return na!==nb?na-nb:a.localeCompare(b,'zh');
   });
-  const sel=document.getElementById('srcSel');
-  sel.innerHTML='<option value="">全部机场</option>'+srcs.map(s=>`<option value="${esc(s)}" ${curSrc===s?'selected':''}>${esc(s)}</option>`).join('');
+  const sel=document.getElementById('list-src');
+  sel.innerHTML=`<button class="drop-opt${curSrc===''?' on':''}" onclick="pickSrc('',this)">全部机场</button>`+srcs.map(s=>`<button class="drop-opt${curSrc===s?' on':''}" onclick="pickSrc('${esc(s)}',this)">${esc(s)}</button>`).join('');
+  document.getElementById('srcLabel').textContent=curSrc||'全部机场';
   render();
 }
 function setSrc(s){curSrc=s;render();}
@@ -178,8 +223,8 @@ function detailHtml(n){
 }
 function render(){
   const q=document.getElementById('q').value.toLowerCase();
-  const only=document.getElementById('only').value;
-  const sort=document.getElementById('sort').value;
+  const only=curOnly;
+  const sort=curSort;
   let list=data.nodes.filter(n=>
     (!q||n.name.toLowerCase().includes(q)) &&
     (!curSrc||n.source===curSrc) &&
@@ -191,7 +236,7 @@ function render(){
     const pct=n.online?Math.min(100,Math.max(4,(n.latency_ms||0)/500*100)):0;
     return `<div class="card${n.online?'':' off'}" onclick="this.querySelector('.detail').classList.toggle('open')">
       <div class="top"><div><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
-      <div class="meta"><span class="pill">${esc(n.source)}</span> ${esc(n.proto.toUpperCase())} · ${esc(n.host)}:${esc(n.port)}</div></div>
+      <div class="meta"><span class="pill">${esc(n.source)}</span> ${esc(n.proto.toUpperCase())}</div></div>
       <div class="lat ${c}">${n.online?n.latency_ms+'<small>ms</small>':'离线'}</div></div>
       <div class="bar"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></div>
       <div class="foot"><span>丢包 ${esc(n.loss)}%</span><span>${n.online?'在线':'离线'} · 点我看详情</span></div>
