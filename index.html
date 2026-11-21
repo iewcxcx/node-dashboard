@@ -23,11 +23,11 @@
   .chip.on{background:#2563eb;border-color:#2563eb;color:#fff}
   input,select{background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:10px;font-size:14px}
   input{flex:1;min-width:160px}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (min-width:701px){.name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
   @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr);gap:6px}.stat{padding:8px 6px}.stat b{font-size:18px}.stat span{font-size:11px}.upd-note{display:block}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme-btn{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}.filters select{font-size:13px;padding:10px 6px}.meta{flex-wrap:nowrap}.meta span{white-space:nowrap}}
-  .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
+  .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px;min-width:0}
   .card.off{opacity:.65}
   .top{display:flex;justify-content:space-between;gap:10px;align-items:center}
   .top>div:first-child{flex:1;min-width:0}
@@ -38,7 +38,7 @@
   .st-bad{color:#ef4444;font-weight:600}
   .st-off{color:#94a3b8;font-weight:600}
   .loss{display:inline-block;min-width:62px}
-  .bar-inline{flex:1;min-width:80px;height:6px;border-radius:999px;background:#1e293b;overflow:hidden}
+  .bar-inline{flex:1;min-width:36px;height:6px;border-radius:999px;background:#1e293b;overflow:hidden}
   .bar-inline i{display:block;height:100%;border-radius:999px}
   .pill{font-size:11px;padding:3px 8px;border-radius:999px;background:#1e293b;color:#cbd5e1;white-space:nowrap}
   .lat{font-size:22px;font-weight:800;white-space:nowrap;text-align:right;line-height:1}
@@ -149,7 +149,7 @@
   </div>
 
   <div class="grid" id="list"></div>
-  <p class="sub" style="margin-top:14px;text-align:center">每小时自动测一次 · 只确认节点是否在线 · 仅供参考</p>
+  <p class="sub" style="margin-top:14px;text-align:center">每小时自动测一次 · 参考节点是否在线！</p>
 </div>
 <script>
 let data={nodes:[]};
