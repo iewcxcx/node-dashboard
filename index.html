@@ -23,7 +23,7 @@
   input,select{background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:10px;font-size:14px}
   input{flex:1;min-width:160px}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.head-row{flex-direction:column}.theme{order:-1;align-self:flex-end;margin-top:0}}
+  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme select{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}}
   .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
   .card.off{opacity:.65}
   .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
@@ -94,12 +94,11 @@
   </header>
 
   <div class="bar-top">
-    <label class="sub" style="white-space:nowrap">机场</label>
     <select id="srcSel" onchange="setSrc(this.value)" style="flex:0;min-width:140px">
       <option value="">全部机场</option>
     </select>
   </div>
-  <div class="bar-top">
+  <div class="bar-top controls">
     <input id="q" placeholder="搜索节点名 / 地区…" oninput="render()">
     <select id="only" onchange="render()">
       <option value="">全部状态</option>
@@ -136,7 +135,10 @@ async function load(){
   document.getElementById('online').textContent=data.online;
   document.getElementById('offline').textContent=data.offline;
   document.getElementById('avail').textContent=data.total?Math.round(data.online/data.total*100)+'%':'-';
-  const srcs=[...new Set(data.nodes.map(n=>n.source).filter(Boolean))];
+  const srcs=[...new Set(data.nodes.map(n=>n.source).filter(Boolean))].sort((a,b)=>{
+    const na=parseInt((a.match(/\d+/)||['0'])[0],10), nb=parseInt((b.match(/\d+/)||['0'])[0],10);
+    return na!==nb?na-nb:a.localeCompare(b,'zh');
+  });
   const sel=document.getElementById('srcSel');
   sel.innerHTML='<option value="">全部机场</option>'+srcs.map(s=>`<option value="${esc(s)}" ${curSrc===s?'selected':''}>${esc(s)}</option>`).join('');
   render();
