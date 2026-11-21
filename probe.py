@@ -122,6 +122,20 @@ def parse_nodes(text, source):
     return nodes
 
 
+# Nodes that are not real proxies, just account info the airport
+# embeds in the subscription (traffic left, expiry, reset date).
+# These would leak account info onto the public panel, so skip them.
+INFO_KEYWORDS = ("剩余流量", "套餐到期", "距离下次重置", "下次重置",
+                 "到期时间", "有效期", "剩余", "套餐", "流量：", "到期：")
+LOCAL_HOSTS = {"127.0.0.1", "localhost", "::1"}
+
+
+def is_info_node(name, host):
+    if str(host).strip().lower() in LOCAL_HOSTS:
+        return True
+    return any(k in str(name) for k in INFO_KEYWORDS)
+
+
 def tcp_latency(host, port, timeout=3):
     best = None
     ok = 0
@@ -141,7 +155,7 @@ def tcp_latency(host, port, timeout=3):
 def main():
     # Supports SUB1..SUB10 so adding an airport later is just a new
     # Secret, no code change. Empty slots are skipped.
-    subs = [(f"SUB{i}", os.environ.get(f"AIRPORT{i}_NAME", f"机场{i}"))
+    subs = [(f"SUB{i}", os.environ.get(f"AIRPORT{i}_NAME") or f"机场{i}")
             for i in range(1, 11)]
     all_nodes = []
     for env_key, label in subs:
@@ -152,6 +166,10 @@ def main():
         try:
             text = fetch_subscription(url)
             nodes = parse_nodes(text, label)
+            before = len(nodes)
+            nodes = [n for n in nodes if not is_info_node(n["name"], n["host"])]
+            if before != len(nodes):
+                print(f"{label}: filtered {before - len(nodes)} info nodes")
             print(f"{label}: {len(nodes)} nodes")
             all_nodes.extend(nodes)
         except Exception as e:
