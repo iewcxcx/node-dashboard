@@ -1,186 +1,16 @@
 {
-  "updated_at": "2026-11-21 10:36 UTC",
-  "total": 90,
-  "online": 71,
-  "offline": 19,
+  "updated_at": "2026-11-21 11:01 UTC",
+  "total": 84,
+  "online": 68,
+  "offline": 16,
   "nodes": [
     {
-      "name": "🇺🇸美国02 | 合适下载使用-0.01倍",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.3,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇭🇰香港•电信01",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 6.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞02-0.1倍",
+      "name": "🇺🇸美国圣何塞07-0.1倍",
       "host": "unamecf3.xn--ghqu5fm27b67w.com",
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 6.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞06-0.1倍",
-      "host": "unamecf3.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇩🇪德国•电信01",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 6.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡01-0.1倍 | 电信联通推荐",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞03-0.1倍",
-      "host": "unamecf3.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡•电信02",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 6.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡03-0.1倍 | 电信联通推荐",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞05-0.1倍",
-      "host": "unamecf3.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国04 | 合适下载使用-0.01倍",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇭🇰香港•电信02",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 6.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇰🇷韩国•电信01",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 6.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡02-0.1倍 | 电信联通推荐",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡05-0.1倍 | 电信联通推荐",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞04-0.1倍",
-      "host": "unamecf3.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国•电信01",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 6.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞01-0.1倍",
-      "host": "unamecf3.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.9,
+      "latency_ms": 19.2,
       "online": true,
       "loss": 0
     },
@@ -190,137 +20,17 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 6.9,
+      "latency_ms": 19.2,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇺🇸美国01 | 合适下载使用-0.01倍",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国03 | 合适下载使用-0.01倍",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国05 | 合适下载使用-0.01倍",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 6.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本•电信02",
+      "name": "🇭🇰香港•电信02",
       "host": "chuixuecf.blowingsnowclouds.cc",
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 7.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇨🇳台湾•电信01",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 7.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡04-0.1倍 | 电信联通推荐",
-      "host": "downloadcfpro.xn--ghq880n3na965a.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 7.1,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡•电信01",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 7.3,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本东京04-0.1倍 | 电信联通推荐",
-      "host": "unamecf.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 7.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞07-0.1倍",
-      "host": "unamecf3.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 7.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本东京03-0.1倍 | 电信联通推荐",
-      "host": "unamecf.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 7.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本东京05-0.1倍 | 电信联通推荐",
-      "host": "unamecf.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 7.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本•电信01",
-      "host": "chuixuecf.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 7.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本东京02-0.1倍 | 电信联通推荐",
-      "host": "unamecf.xn--ghqu5fm27b67w.com",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 7.6,
+      "latency_ms": 19.4,
       "online": true,
       "loss": 0
     },
@@ -330,17 +40,227 @@
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 8.0,
+      "latency_ms": 19.5,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇯🇵日本东京01-0.1倍 | 电信联通推荐",
+      "name": "🇯🇵日本东京05-0.1倍 | 电信联通推荐",
       "host": "unamecf.xn--ghqu5fm27b67w.com",
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 9.5,
+      "latency_ms": 19.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇩🇪德国•电信01",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 19.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞06-0.1倍",
+      "host": "unamecf3.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国02 | 合适下载使用-0.01倍",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国05 | 合适下载使用-0.01倍",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡•电信02",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 19.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞02-0.1倍",
+      "host": "unamecf3.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国04 | 合适下载使用-0.01倍",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇰🇷韩国•电信01",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 19.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国•电信01",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 19.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞04-0.1倍",
+      "host": "unamecf3.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本东京04-0.1倍 | 电信联通推荐",
+      "host": "unamecf.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.9,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国03 | 合适下载使用-0.01倍",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 19.9,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇨🇳台湾•电信01",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 20.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国01 | 合适下载使用-0.01倍",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 20.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡04-0.1倍 | 电信联通推荐",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 20.2,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡03-0.1倍 | 电信联通推荐",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 20.3,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇭🇰香港•电信01",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 20.4,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本•电信02",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 20.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞05-0.1倍",
+      "host": "unamecf3.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 20.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡05-0.1倍 | 电信联通推荐",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 21.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本东京02-0.1倍 | 电信联通推荐",
+      "host": "unamecf.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 21.1,
       "online": true,
       "loss": 0
     },
@@ -350,37 +270,7 @@
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 19.1,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞07 | 三网推荐",
-      "host": "pq.us07.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 21.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞06 | 三网推荐",
-      "host": "pq.us06.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 21.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞05 | 三网推荐",
-      "host": "pq.us05.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 22.3,
+      "latency_ms": 24.7,
       "online": true,
       "loss": 0
     },
@@ -390,7 +280,67 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 32.4,
+      "latency_ms": 33.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本东京01-0.1倍 | 电信联通推荐",
+      "host": "unamecf.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 38.9,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞01-0.1倍",
+      "host": "unamecf3.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 39.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞05 | 三网推荐",
+      "host": "pq.us05.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 41.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞03-0.1倍",
+      "host": "unamecf3.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 44.0,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞06 | 三网推荐",
+      "host": "pq.us06.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 61.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞07 | 三网推荐",
+      "host": "pq.us07.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 62.4,
       "online": true,
       "loss": 0
     },
@@ -400,17 +350,17 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 35.6,
+      "latency_ms": 64.9,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇺🇸美国圣何塞01 | 三网推荐",
-      "host": "pq.us01.yydjc.top",
+      "name": "🇸🇬新加坡02-0.1倍 | 电信联通推荐",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 35.9,
+      "latency_ms": 65.1,
       "online": true,
       "loss": 0
     },
@@ -420,7 +370,17 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 35.9,
+      "latency_ms": 65.4,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本东京03-0.1倍 | 电信联通推荐",
+      "host": "unamecf.xn--ghqu5fm27b67w.com",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 65.5,
       "online": true,
       "loss": 0
     },
@@ -430,57 +390,27 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 36.0,
+      "latency_ms": 65.8,
       "online": true,
       "loss": 0
     },
     {
-      "name": "距离下次重置剩余：14 天",
-      "host": "chuixuevl1.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 98.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本01 | 电信移动联通推荐",
-      "host": "pq.aws48.yydjc.top",
+      "name": "🇺🇸美国圣何塞01 | 三网推荐",
+      "host": "pq.us01.yydjc.top",
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 98.5,
+      "latency_ms": 66.7,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇯🇵AWS日本06 | 电信移动联通推荐",
-      "host": "pq.aws53.yydjc.top",
+      "name": "🇸🇬新加坡01-0.1倍 | 电信联通推荐",
+      "host": "downloadcfpro.xn--ghq880n3na965a.com",
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 98.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本04 | 电信移动联通推荐",
-      "host": "pq.aws51.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 99.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本03 | 电信移动联通推荐",
-      "host": "pq.aws50.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 99.3,
+      "latency_ms": 85.6,
       "online": true,
       "loss": 0
     },
@@ -490,107 +420,7 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 99.3,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本•移联02",
-      "host": "chuixuevl2.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 99.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本10 | 电信移动联通推荐",
-      "host": "pq.aws57.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 99.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "套餐到期：2026-12-05",
-      "host": "chuixuevl1.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 99.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本02 | 电信移动联通推荐",
-      "host": "pq.aws49.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 99.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本07 | 电信移动联通推荐",
-      "host": "pq.aws54.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 100.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本05 | 电信移动联通推荐",
-      "host": "pq.aws52.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 100.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "剩余流量：121.55 GB",
-      "host": "chuixuevl1.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 100.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本•移联01",
-      "host": "chuixuevl1.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 100.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本08 | 电信移动联通推荐",
-      "host": "pq.aws55.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 101.1,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇰🇷韩国•移联01",
-      "host": "chuixuevl15.blowingsnowclouds.cc",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 120.8,
+      "latency_ms": 120.0,
       "online": true,
       "loss": 0
     },
@@ -600,27 +430,117 @@
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 128.0,
+      "latency_ms": 120.3,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇨🇳台湾•移联01",
-      "host": "chuixuevl13.blowingsnowclouds.cc",
+      "name": "🇯🇵AWS日本08 | 电信移动联通推荐",
+      "host": "pq.aws55.yydjc.top",
       "port": 443,
       "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 129.4,
+      "source": "机场2",
+      "latency_ms": 120.3,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇭🇰香港•移联02",
-      "host": "chuixuevl10.blowingsnowclouds.cc",
+      "name": "🇯🇵日本•移联02",
+      "host": "chuixuevl2.blowingsnowclouds.cc",
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 144.6,
+      "latency_ms": 120.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本04 | 电信移动联通推荐",
+      "host": "pq.aws51.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 120.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本06 | 电信移动联通推荐",
+      "host": "pq.aws53.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 120.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本02 | 电信移动联通推荐",
+      "host": "pq.aws49.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 120.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本05 | 电信移动联通推荐",
+      "host": "pq.aws52.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 120.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本07 | 电信移动联通推荐",
+      "host": "pq.aws54.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 120.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本10 | 电信移动联通推荐",
+      "host": "pq.aws57.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 120.9,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本03 | 电信移动联通推荐",
+      "host": "pq.aws50.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 121.0,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本01 | 电信移动联通推荐",
+      "host": "pq.aws48.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 121.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本•移联01",
+      "host": "chuixuevl1.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 121.2,
       "online": true,
       "loss": 0
     },
@@ -630,7 +550,27 @@
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 145.0,
+      "latency_ms": 134.0,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇰🇷韩国•移联01",
+      "host": "chuixuevl15.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 149.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇨🇳台湾•移联01",
+      "host": "chuixuevl13.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 150.1,
       "online": true,
       "loss": 0
     },
@@ -640,7 +580,17 @@
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 145.5,
+      "latency_ms": 164.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇭🇰香港•移联02",
+      "host": "chuixuevl10.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 164.8,
       "online": true,
       "loss": 0
     },
@@ -650,7 +600,7 @@
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 173.3,
+      "latency_ms": 183.3,
       "online": true,
       "loss": 0
     },
@@ -660,7 +610,7 @@
       "port": 443,
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 173.8,
+      "latency_ms": 183.3,
       "online": true,
       "loss": 0
     },
@@ -670,27 +620,7 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 175.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬AWS新加坡01 | 电信移动联通推荐",
-      "host": "pq.aws63.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 175.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬AWS新加坡04 | 电信移动联通推荐",
-      "host": "pq.aws66.yydjc.top",
-      "port": 443,
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 175.8,
+      "latency_ms": 184.3,
       "online": true,
       "loss": 0
     },
@@ -700,7 +630,7 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 176.2,
+      "latency_ms": 184.4,
       "online": true,
       "loss": 0
     },
@@ -710,7 +640,47 @@
       "port": 443,
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 269.3,
+      "latency_ms": 185.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬AWS新加坡04 | 电信移动联通推荐",
+      "host": "pq.aws66.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 185.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬AWS新加坡01 | 电信移动联通推荐",
+      "host": "pq.aws63.yydjc.top",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 264.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本•电信01",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 325.2,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡•电信01",
+      "host": "chuixuecf.blowingsnowclouds.cc",
+      "port": 443,
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 343.0,
       "online": true,
       "loss": 0
     },
@@ -869,36 +839,6 @@
       "host": "pq-hinet.tw3.yydjc.top",
       "port": 60000,
       "proto": "hysteria2",
-      "source": "机场2",
-      "latency_ms": null,
-      "online": false,
-      "loss": 100
-    },
-    {
-      "name": "剩余流量：199.66 GB",
-      "host": "127.0.0.1",
-      "port": 6666,
-      "proto": "ss",
-      "source": "机场2",
-      "latency_ms": null,
-      "online": false,
-      "loss": 100
-    },
-    {
-      "name": "距离下次重置剩余：11 天",
-      "host": "127.0.0.1",
-      "port": 6666,
-      "proto": "ss",
-      "source": "机场2",
-      "latency_ms": null,
-      "online": false,
-      "loss": 100
-    },
-    {
-      "name": "套餐到期：2026-12-02",
-      "host": "127.0.0.1",
-      "port": 6666,
-      "proto": "ss",
       "source": "机场2",
       "latency_ms": null,
       "online": false,
