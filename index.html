@@ -25,12 +25,14 @@
   input{flex:1;min-width:160px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr);gap:6px}.stat{padding:8px 6px}.stat b{font-size:18px}.stat span{font-size:11px}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme-btn{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}.filters select{font-size:13px;padding:10px 6px}}
+  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,1fr);gap:6px}.stat{padding:8px 6px}.stat b{font-size:18px}.stat span{font-size:11px}.upd-note{display:block}.head-row{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap}.theme{order:0;align-self:auto;margin-top:0}.theme label{display:none}h1{font-size:20px}.theme-btn{min-width:104px}.controls{flex-direction:column}.controls input{flex:none;width:100%;min-width:0}.controls select{flex:none;width:100%;min-width:0}.filters select{font-size:13px;padding:10px 6px}}
   .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
   .card.off{opacity:.65}
   .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
   .name{font-weight:700;font-size:15px}
-  .meta{color:#94a3b8;font-size:12px;margin-top:4px}
+  .meta{color:#94a3b8;font-size:12px;margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .bar-inline{flex:1;min-width:48px;height:6px;border-radius:999px;background:#1e293b;overflow:hidden}
+  .bar-inline i{display:block;height:100%;border-radius:999px}
   .pill{font-size:11px;padding:3px 8px;border-radius:999px;background:#1e293b;color:#cbd5e1;white-space:nowrap}
   .lat{font-size:22px;font-weight:800;white-space:nowrap;text-align:right}
   .lat small{font-size:12px;font-weight:400;color:#94a3b8;display:block}
@@ -45,6 +47,7 @@
   .theme select{padding:7px 10px;font-size:13px;min-width:120px;flex:0}
   .theme-drop{position:relative}
   .theme-btn{display:flex;align-items:center;gap:6px;background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer;min-width:110px;justify-content:space-between}
+  .theme-btn span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:left}
   .theme-list{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#111c33;border:1px solid #334155;border-radius:12px;padding:4px;min-width:130px;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.4)}
   .theme-list.open{display:block}
   .theme-opt{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:transparent;color:#e2e8f0;border:none;border-radius:8px;padding:9px 10px;font-size:13px;cursor:pointer}
@@ -56,6 +59,8 @@
   body.black .theme-btn,body.black .theme-list{background:#111111;border-color:#333333}
   .drop{position:relative;flex:1;min-width:0}
   .drop-btn{display:flex;align-items:center;gap:6px;width:100%;background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:10px 12px;font-size:14px;cursor:pointer;justify-content:space-between;white-space:nowrap;overflow:hidden}
+  .drop-btn span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:left}
+  .drop-btn span:last-child,.theme-btn span:last-child{flex:none}
   .drop-list{display:none;position:absolute;left:0;top:calc(100% + 6px);background:#111c33;border:1px solid #334155;border-radius:12px;padding:4px;min-width:100%;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.4)}
   .drop-list.open{display:block}
   .drop-opt{display:block;width:100%;text-align:left;background:transparent;color:#e2e8f0;border:none;border-radius:8px;padding:9px 10px;font-size:13px;cursor:pointer;white-space:nowrap}
@@ -134,10 +139,10 @@
       </div>
     </div>
     <div class="drop">
-      <button class="drop-btn" onclick="toggleDrop(event,'sort')"><span id="sortLabel">按延迟从低到高</span><span>▾</span></button>
+      <button class="drop-btn" onclick="toggleDrop(event,'sort')"><span id="sortLabel">延迟排序</span><span>▾</span></button>
       <div class="drop-list" id="list-sort">
-        <button class="drop-opt" onclick="pickSort('lat',this)">按延迟从低到高</button>
-        <button class="drop-opt" onclick="pickSort('name',this)">按名称排序</button>
+        <button class="drop-opt" onclick="pickSort('lat',this)">延迟排序</button>
+        <button class="drop-opt" onclick="pickSort('name',this)">名称排序</button>
       </div>
     </div>
   </div>
@@ -146,7 +151,7 @@
   </div>
 
   <div class="grid" id="list"></div>
-  <p class="sub" style="margin-top:14px">每小时自动测一次 · 延迟为 GitHub 机房到节点的 TCP 延迟，仅供参考 · 点一张卡片可以展开看延迟和丢包详情（只有 TCP 是实测的，ICMP、HTTP 没测）· 离线多为 Hysteria2（UDP），不一定是真死</p>
+  <p class="sub" style="margin-top:14px">每小时自动测一次 · 只确认节点是否在线 · 仅供参考</p>
 </div>
 <script>
 let data={nodes:[]};
@@ -174,7 +179,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 async function load(){
   const r=await fetch('results.json?'+Date.now());
   data=await r.json();
-  document.getElementById('updated').textContent='更新时间：'+data.updated_at+'（每小时自动测一次）';
+  document.getElementById('updated').innerHTML='更新时间：'+data.updated_at+'<span class="upd-note">（每小时自动测一次）</span>';
   document.getElementById('total').textContent=data.total;
   document.getElementById('online').textContent=data.online;
   document.getElementById('offline').textContent=data.offline;
@@ -236,10 +241,8 @@ function render(){
     const pct=n.online?Math.min(100,Math.max(4,(n.latency_ms||0)/500*100)):0;
     return `<div class="card${n.online?'':' off'}" onclick="this.querySelector('.detail').classList.toggle('open')">
       <div class="top"><div><div class="name"><span class="dot" style="background:${barColor(n.latency_ms,n.online)}"></span>${esc(n.name)}</div>
-      <div class="meta"><span class="pill">${esc(n.source)}</span> ${esc(n.proto.toUpperCase())}</div></div>
+      <div class="meta"><span class="pill">${esc(n.source)}</span> ${esc(n.proto.toUpperCase())} · 丢包 ${esc(n.loss)}% <span class="bar-inline"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></span> ${n.online?'在线':'离线'}</div></div>
       <div class="lat ${c}">${n.online?n.latency_ms+'<small>ms</small>':'离线'}</div></div>
-      <div class="bar"><i style="width:${pct}%;background:${barColor(n.latency_ms,n.online)}"></i></div>
-      <div class="foot"><span>丢包 ${esc(n.loss)}%</span><span>${n.online?'在线':'离线'} · 点我看详情</span></div>
       ${detailHtml(n)}
     </div>`;
   }).join(''):'<div class="empty">没有匹配的节点，先等第一次探测跑完。</div>';
