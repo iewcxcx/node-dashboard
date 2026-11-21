@@ -9,6 +9,7 @@
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#0a0f1e;color:#e2e8f0}
   .wrap{max-width:1080px;margin:0 auto;padding:18px 14px 48px}
   header{padding:8px 2px 16px}
+  .head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
   h1{font-size:24px;margin:0 0 4px}
   .sub{color:#94a3b8;font-size:13px}
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
@@ -22,7 +23,7 @@
   input,select{background:#111c33;color:#e2e8f0;border:1px solid #334155;border-radius:10px;padding:10px;font-size:14px}
   input{flex:1;min-width:160px}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:700px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.head-row{flex-direction:column}.theme{order:-1;align-self:flex-end;margin-top:0}}
   .card{background:#111c33;border:1px solid #1e293b;border-radius:14px;padding:14px}
   .card.off{opacity:.65}
   .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
@@ -37,14 +38,15 @@
   .foot{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:#94a3b8}
   .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
   .empty{color:#94a3b8;padding:28px;text-align:center;grid-column:1/-1}
-  .theme{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-  .theme button{border:1px solid #334155;background:#111c33;color:#e2e8f0;border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer}
-  .theme button.on{background:#2563eb;border-color:#2563eb;color:#fff}
+  .theme{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
+  .theme label{font-size:13px;color:#94a3b8}
+  .theme select{padding:7px 10px;font-size:13px;min-width:120px;flex:0}
   body.light{background:#ffffff;color:#0f172a}
   body.light .sub,body.light .stat span{color:#64748b}
   body.light .stat{background:#f8fafc;border-color:#e2e8f0}
   body.light .chip,body.light input,body.light select,body.light .card{background:#ffffff;color:#0f172a;border-color:#e2e8f0}
   body.light .theme button{background:#f8fafc;color:#0f172a;border-color:#e2e8f0}
+  body.light .theme label{color:#64748b}
   body.light .meta{color:#64748b}
   body.light .bar{background:#e2e8f0}
   body.light .pill{background:#f1f5f9;color:#334155}
@@ -70,12 +72,18 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>节点延迟看板</h1>
-    <div class="sub" id="updated">正在加载…</div>
-    <div class="theme" id="themeBtns">
-      <button data-theme="dark" onclick="setTheme('dark')">🌙 深蓝</button>
-      <button data-theme="light" onclick="setTheme('light')">☀️ 白色</button>
-      <button data-theme="black" onclick="setTheme('black')">⬛ 纯黑</button>
+    <div class="head-row">
+      <div>
+        <h1>节点延迟看板</h1>
+        <div class="sub" id="updated">正在加载…</div>
+      </div>
+      <div class="theme">
+        <label>主题背景</label>
+        <select id="themeSel" onchange="setTheme(this.value)">
+          <option value="black">⬛ 纯黑</option>
+          <option value="light">☀️ 白色</option>
+        </select>
+      </div>
     </div>
     <div class="stats">
       <div class="stat"><b id="total">-</b><span>全部节点</span></div>
@@ -85,7 +93,12 @@
     </div>
   </header>
 
-  <div class="bar-top" id="srcTabs"></div>
+  <div class="bar-top">
+    <label class="sub" style="white-space:nowrap">机场</label>
+    <select id="srcSel" onchange="setSrc(this.value)" style="flex:0;min-width:140px">
+      <option value="">全部机场</option>
+    </select>
+  </div>
   <div class="bar-top">
     <input id="q" placeholder="搜索节点名 / 地区…" oninput="render()">
     <select id="only" onchange="render()">
@@ -110,9 +123,10 @@ function setTheme(t){
   if(t==='light') document.body.classList.add('light');
   if(t==='black') document.body.classList.add('black');
   try{localStorage.setItem('theme',t);}catch(e){}
-  document.querySelectorAll('#themeBtns button').forEach(b=>b.classList.toggle('on',b.dataset.theme===t));
+  const sel=document.getElementById('themeSel');
+  if(sel) sel.value=t;
 }
-(function(){try{setTheme(localStorage.getItem('theme')||'dark');}catch(e){setTheme('dark');}})();
+(function(){try{const t=localStorage.getItem('theme');setTheme(t==='light'?'light':'black');}catch(e){setTheme('black');}})();
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function load(){
   const r=await fetch('results.json?'+Date.now());
@@ -123,10 +137,11 @@ async function load(){
   document.getElementById('offline').textContent=data.offline;
   document.getElementById('avail').textContent=data.total?Math.round(data.online/data.total*100)+'%':'-';
   const srcs=[...new Set(data.nodes.map(n=>n.source).filter(Boolean))];
-  document.getElementById('srcTabs').innerHTML='<button class="chip'+(curSrc===''?' on':'')+'" onclick="setSrc(\'\')">全部机场</button>'+srcs.map(s=>`<button class="chip${curSrc===s?' on':''}" onclick="setSrc('${esc(s)}')">${esc(s)}</button>`).join('');
+  const sel=document.getElementById('srcSel');
+  sel.innerHTML='<option value="">全部机场</option>'+srcs.map(s=>`<option value="${esc(s)}" ${curSrc===s?'selected':''}>${esc(s)}</option>`).join('');
   render();
 }
-function setSrc(s){curSrc=s;load();}
+function setSrc(s){curSrc=s;render();}
 function cls(ms,online){
   if(!online) return 'off';
   if(ms<150) return 'good'; if(ms<350) return 'mid'; return 'bad';
