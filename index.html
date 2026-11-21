@@ -174,14 +174,19 @@ function pickTheme(t){setTheme(t);document.getElementById('themeList').classList
 document.addEventListener('click',()=>{const l=document.getElementById('themeList');if(l) l.classList.remove('open');closeDrops();});
 (function(){try{const t=localStorage.getItem('theme');setTheme(t==='light'?'light':'black');}catch(e){setTheme('black');}})();
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function updateStats(){
+  const scoped=data.nodes.filter(n=>!curSrc||n.source===curSrc);
+  const on=scoped.filter(n=>n.online).length;
+  document.getElementById('total').textContent=scoped.length;
+  document.getElementById('online').textContent=on;
+  document.getElementById('offline').textContent=scoped.length-on;
+  document.getElementById('avail').textContent=scoped.length?Math.round(on/scoped.length*100)+'%':'-';
+}
 async function load(){
   const r=await fetch('results.json?'+Date.now());
   data=await r.json();
   document.getElementById('updated').innerHTML='更新时间：'+data.updated_at+'<span class="upd-note">（每小时自动测一次）</span>';
-  document.getElementById('total').textContent=data.total;
-  document.getElementById('online').textContent=data.online;
-  document.getElementById('offline').textContent=data.offline;
-  document.getElementById('avail').textContent=data.total?Math.round(data.online/data.total*100)+'%':'-';
+  updateStats();
   const srcs=[...new Set(data.nodes.map(n=>n.source).filter(Boolean))].sort((a,b)=>{
     const na=parseInt((a.match(/\d+/)||['0'])[0],10), nb=parseInt((b.match(/\d+/)||['0'])[0],10);
     return na!==nb?na-nb:a.localeCompare(b,'zh');
@@ -201,6 +206,7 @@ function barColor(ms,online){
   if(ms<200) return '#22c55e'; if(ms<400) return '#eab308'; return '#ef4444';
 }
 function render(){
+  updateStats();
   const q=document.getElementById('q').value.toLowerCase();
   const only=curOnly;
   const sort=curSort;
