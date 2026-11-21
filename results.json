@@ -1,46 +1,14 @@
 {
-  "updated_at": "2026-11-21 21:21 北京时间",
+  "updated_at": "2026-11-22 01:54 北京时间",
   "total": 84,
-  "online": 67,
-  "offline": 17,
+  "online": 68,
+  "offline": 16,
   "nodes": [
     {
-      "name": "🇺🇸美国圣何塞05-0.1倍",
+      "name": "🇺🇸美国01 | 合适下载使用-0.01倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 3.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国04 | 合适下载使用-0.01倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 3.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡04-0.1倍 | 电信联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 3.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国•电信01",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 3.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国05 | 合适下载使用-0.01倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 3.8,
+      "latency_ms": 1.8,
       "online": true,
       "loss": 0
     },
@@ -48,167 +16,7 @@
       "name": "🇺🇸美国洛杉矶08-0.1倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 3.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇩🇪德国•电信01",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇭🇰香港•电信02",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.1,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞06-0.1倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 4.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国02 | 合适下载使用-0.01倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 4.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇰🇷韩国•电信01",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本•电信02",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞07-0.1倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 4.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡•电信01",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡•电信02",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国03 | 合适下载使用-0.01倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 4.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇬🇧英国•电信01",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞03-0.1倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 4.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇨🇳台湾•电信01",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 4.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡03-0.1倍 | 电信联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 5.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇭🇰香港•电信01",
-      "proto": "vless",
-      "source": "机场1",
-      "latency_ms": 5.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡05-0.1倍 | 电信联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 10.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国01 | 合适下载使用-0.01倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 11.6,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞04-0.1倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 11.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本东京02-0.1倍 | 电信联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 11.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵日本东京05-0.1倍 | 电信联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 12.0,
+      "latency_ms": 1.9,
       "online": true,
       "loss": 0
     },
@@ -216,63 +24,55 @@
       "name": "🇯🇵日本东京04-0.1倍 | 电信联通推荐",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 12.1,
+      "latency_ms": 2.1,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇸🇬新加坡02-0.1倍 | 电信联通推荐",
+      "name": "🇺🇸美国圣何塞05-0.1倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 14.4,
+      "latency_ms": 2.1,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇯🇵日本东京03-0.1倍 | 电信联通推荐",
+      "name": "🇺🇸美国02 | 合适下载使用-0.01倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 21.5,
+      "latency_ms": 2.1,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇺🇸美国圣何塞02-0.1倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 31.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞01-0.1倍",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 34.9,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡01-0.1倍 | 电信联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 37.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国洛杉矶08 | 三网推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 44.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国•移联01",
+      "name": "🇸🇬新加坡•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 48.9,
+      "latency_ms": 2.2,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡03-0.1倍 | 电信联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.2,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞04-0.1倍",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.2,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞06-0.1倍",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.2,
       "online": true,
       "loss": 0
     },
@@ -280,247 +80,191 @@
       "name": "🇯🇵日本东京01-0.1倍 | 电信联通推荐",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 49.7,
+      "latency_ms": 2.3,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇺🇸美国圣何塞05 | 三网推荐",
+      "name": "🇯🇵日本东京03-0.1倍 | 电信联通推荐",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 54.5,
+      "latency_ms": 2.3,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇺🇸美国圣何塞07 | 三网推荐",
+      "name": "🇺🇸美国圣何塞02-0.1倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 57.1,
+      "latency_ms": 2.3,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇺🇸美国圣何塞06 | 三网推荐",
+      "name": "🇺🇸美国05 | 合适下载使用-0.01倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 57.9,
+      "latency_ms": 2.3,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇺🇸美国圣何塞03 | 三网推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 67.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞04 | 三网推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 71.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞01 | 三网推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 73.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇺🇸美国圣何塞02 | 三网推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 91.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇬🇧英国•移联01",
+      "name": "🇰🇷韩国•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 100.5,
+      "latency_ms": 2.4,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇩🇪德国•移联01",
+      "name": "🇬🇧英国•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 114.0,
+      "latency_ms": 2.4,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇯🇵AWS日本03 | 电信移动联通推荐",
+      "name": "🇸🇬新加坡01-0.1倍 | 电信联通推荐",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 142.7,
+      "latency_ms": 2.4,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇯🇵AWS日本05 | 电信移动联通推荐",
+      "name": "🇺🇸美国03 | 合适下载使用-0.01倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 142.9,
+      "latency_ms": 2.4,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇯🇵AWS日本07 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 144.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本04 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 145.0,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本08 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 145.1,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本06 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 147.2,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本09 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 147.3,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本01 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 147.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本02 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 149.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇯🇵AWS日本10 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 149.8,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇰🇷韩国•移联01",
+      "name": "🇭🇰香港•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 171.5,
+      "latency_ms": 2.5,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇨🇳台湾•移联01",
+      "name": "🇨🇳台湾•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 177.3,
+      "latency_ms": 2.5,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇭🇰香港•移联01",
+      "name": "🇸🇬新加坡02-0.1倍 | 电信联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡05-0.1倍 | 电信联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本东京05-0.1倍 | 电信联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞07-0.1倍",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国04 | 合适下载使用-0.01倍",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇩🇪德国•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 191.4,
+      "latency_ms": 2.6,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇭🇰香港•移联02",
+      "name": "🇸🇬新加坡04-0.1倍 | 电信联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本东京02-0.1倍 | 电信联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞03-0.1倍",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 2.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本•电信02",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 192.3,
+      "latency_ms": 2.7,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇸🇬AWS新加坡05 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 207.4,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬AWS新加坡02 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 207.7,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡•移联01",
+      "name": "🇸🇬新加坡•电信02",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 209.1,
+      "latency_ms": 2.7,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇸🇬AWS新加坡03 | 电信移动联通推荐",
-      "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 209.5,
-      "online": true,
-      "loss": 0
-    },
-    {
-      "name": "🇸🇬新加坡•移联02",
+      "name": "🇺🇸美国•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 214.4,
+      "latency_ms": 2.7,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇸🇬AWS新加坡04 | 电信移动联通推荐",
+      "name": "🇺🇸美国圣何塞01-0.1倍",
       "proto": "vless",
       "source": "机场2",
-      "latency_ms": 215.9,
+      "latency_ms": 2.8,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇸🇬AWS新加坡01 | 电信移动联通推荐",
+      "name": "🇭🇰香港•电信02",
       "proto": "vless",
-      "source": "机场2",
-      "latency_ms": 219.5,
+      "source": "机场1",
+      "latency_ms": 2.9,
       "online": true,
       "loss": 0
     },
@@ -528,15 +272,159 @@
       "name": "🇯🇵日本•电信01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 578.3,
+      "latency_ms": 3.0,
       "online": true,
       "loss": 0
     },
     {
-      "name": "🇯🇵日本•移联01",
+      "name": "🇺🇸美国圣何塞03 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 53.3,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国洛杉矶08 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 57.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞04 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 57.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞01 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 58.0,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国•移联01",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": 3149.9,
+      "latency_ms": 59.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞06 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 65.9,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞07 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 67.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞05 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 67.3,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇺🇸美国圣何塞02 | 三网推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 75.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇬🇧英国•移联01",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 75.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇩🇪德国•移联01",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 92.0,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本03 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 145.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本07 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 146.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本08 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 146.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本02 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 146.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本09 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 148.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本06 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 149.3,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本05 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 149.7,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本01 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 150.3,
       "online": true,
       "loss": 0
     },
@@ -544,9 +432,121 @@
       "name": "🇯🇵日本•移联02",
       "proto": "vless",
       "source": "机场1",
-      "latency_ms": null,
-      "online": false,
-      "loss": 100
+      "latency_ms": 150.6,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本04 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 150.9,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵AWS日本10 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 151.0,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇯🇵日本•移联01",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 151.3,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇰🇷韩国•移联01",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 177.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇨🇳台湾•移联01",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 179.4,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇭🇰香港•移联01",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 204.1,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇭🇰香港•移联02",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 206.0,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡•移联02",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 211.9,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬AWS新加坡01 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 214.5,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬AWS新加坡03 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 218.4,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬AWS新加坡05 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 220.4,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬新加坡•移联01",
+      "proto": "vless",
+      "source": "机场1",
+      "latency_ms": 221.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬AWS新加坡02 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 223.8,
+      "online": true,
+      "loss": 0
+    },
+    {
+      "name": "🇸🇬AWS新加坡04 | 电信移动联通推荐",
+      "proto": "vless",
+      "source": "机场2",
+      "latency_ms": 227.1,
+      "online": true,
+      "loss": 0
     },
     {
       "name": "🇺🇸美国01-0.1倍 | 电信联通移动推荐",
